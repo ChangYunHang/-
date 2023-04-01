@@ -1,6 +1,8 @@
 package DAY1;
 
 
+import java.util.concurrent.atomic.DoubleAccumulator;
+
 /*
 * 标识符的使用
 * 1.标识符：凡是自己命名的都叫标识符。比如：类名,方法名，接口名，包名...
@@ -136,11 +138,148 @@ class VariableTest1{
 
         //4.布尔型：boolean
         //①只能取两个值之一给
+        //③常常在条件判断、循环结构中使用
+        boolean bb1 = true;
+        System.out.println(bb1);
+
+        boolean isMarried = true;
+        if (isMarried) {
+            System.out.println("你就不能参加单身派队了！\n很遗憾");
+        }else {
+            System.out.println("你可以多谈谈女朋友");
+
+        }
+    }
+}
+/*
+* 基本数据类型之间的运算规则：
+* 前提： 这里讨论只是7种数据类型变量间的运算。不包括boolean类型的。
+* 1.自动类型提升：
+* 结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型
+* byte、char、short--> int -->long -->float -->double
+* 特别的：当byte、char、short三种类型的变量做运算时，结果为int型
+* 2.强制类型转换：自动类型提升运算的逆运算。
+* ①需要使用强转符（）
+* ②注意点：强制类型转换，可能导致精度损失。
+*
+*说明：此时的容量大小指的是，表示数范围的大和小。比如：float容量要大于long的容量
+*
+* */
+class VariableTest2{
+    public static void main(String[]args){
+        byte b1=2;
+        int i1=129;
+        //编译不通过
+        //byte b2= b1+i1;
+        int i2=b1+i1;
+        long l1=b1+i1;
+        System.out.println(i2);
+        System.out.println("Hellow world!");
+        float f = b1+i1;
+        System.out.println(f);
+        short s1=123;
+        double d1=s1;
+        System.out.println(d1);//123.0
+        //**********
+        char c1='a';//97
+        int i3=10;
+        int i4=c1+i3;
+        System.out.println(i4);
+        short s2=10;
+        //char c2 =c1+s2;//编译不通过
+        byte b2=10;
+        //char c3=c1+b2;//编译不通过
+        //short s3=b2+s2;//编译不通过
+        //short s4=b1+b2;//编译不通过
+        //************
+
+
 
     }
 }
+class VariableTest3{
+    public static void main(String[]args){
+        double d1=12.3;
+        int i1 = (int)d1;//截断操作
+        System.out.println(i1);
+        //没有精度损失
+        long l1= 123;
+        short s2=(short) l1;
+        //精度损失举例2
+        int i2= 128;
+        byte b =(byte) 12;
+        System.out.println(b);//-128
+    }
+}
+class VariableTest4{
+    public static void  main(String[]args){
+        //编码情况：
+        long l=123123;
+        System.out.println(l);
+        //编译失败：过大的整数
+        //long  l1=22165421531;
+        long l1=122341654564l;
 
 
+
+        //************
+        //编译失败
+        //float f1=12.3;
+
+        //2.编码情况2；
+        //整型常量，默认类型为int型
+        //浮点型常量，默认类型为double型
+        byte b =12;
+        //byte b1=b+1;//编译失败
+        //float f1=b+12.3;//编译失败
+
+    }
+}
+/*
+*String类型变量的使用
+* 1.String属于引用数据类型
+*2.声明String类型变量时，使用一对""
+*3.String可以和8种基本数据类型变量做运算，且运算只能是连接运算：+
+*4.运算结果仍然是String类型
+*
+*
+* */
+class StringTest{
+    public static void main(String[]args){
+        String s1 = "Hellow World!";
+        System.out.println(s1);
+        String s2= "a";
+        String S3= "";
+        //char c=' ';//编译不通过
+        //************
+        int number = 1001;
+        String numberStr="学号：";
+        String info = numberStr+number;//+:连接运算
+        boolean b1=ture;
+        String info1=info+b1;//+:连接运算
+        System.out.println(info);
+        //**************
+        //练习1
+        char c = 'a';
+        int num=10;
+        String str = "hello";
+        System.out.println(c + num + str );//107hello
+        System.out.println(c + str + num );//a hello10
+        System.out.println(c + (num + str) );//a10hello
+        System.out.println((c + num) + str );//107hello
+        System.out.println(str + num + c );//hello10a
+
+       //练习2
+        //*   *
+        System.out.println("*   *");//对
+        System.out.println('*'+'\t'+'*');//错
+        System.out.println('*'+"\t"+'*');//对
+        System.out.println('*'+'\t'+"*");//错
+        System.out.println('*'+('\t'+"*"));//对
+
+
+    }
+}
 
 
 
