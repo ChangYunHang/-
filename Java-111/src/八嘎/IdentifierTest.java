@@ -417,11 +417,129 @@ class SetValueTest{
         s1 += 2;//不会改变变量本身的数据类型
         System.out.println(s1);
 
+        //开发中，如果希望实现+2操作，有几种方法？（前提：int num = 10;)
+        //方式一：num = num+2;
+        //方式二：num +=2;(推荐）
+
+        //开发中，如果希望变量实现+1的操作，有几种方法？（前提：int num = 10;)
+        //方式一：num = num + 1;
+        //方式二：num += 1;
+        //方式三：num++;(推荐)
+        int i = 1;
+        i *=0.1;
+        System.out.println(i);//0
+        i++;
+        System.out.println(i);//1
+        //练习2
+        int m=2;
+        int n=3;
+        n *=m++;//n =n * m++;
+        System.out.println("m="+m);//3
+        System.out.println("n="+n);//6
+        int n1=10;
+        n1 +=(n1++) + (++n1);//n1 = (n1++) + (++n1);
+        System.out.println(n1);//32
 
 
     }
 }
+/*
+* 运算符之三 ：比较运算符
+* ==   != >  <   >=  <=  instanceof
+*结论：
+*1.比较运算符的结果是boolean的类型
+* 2.区分 == 和=
+* */
+class CompareTest{
+    public static void main(String[]args){
+        int i = 10;
+        int j = 20;
+        System.out.println(i == j);//false
+        System.out.println(i = j);//20
 
+        boolean b1 = true;
+        boolean b2 = false;
+        System.out.println(b2 == b1);//false
+        System.out.println(b2== b1);//ture
+    }
+}
+/*
+* 运算符之四：逻辑运算符
+* &  &&  |   ||  !  ^
+*
+* 说明：
+* 1.逻辑运算符操作的都是boolean类型的量
+*
+*/
+class LogicTest {
+    public static void main(String[] args) {
+        //区分&与&&
+        //相同点1：&  与   &&的运算结果相同
+        //相同点2：当符号左边是true时，二者都会执行符号右边的运算
+        //不同点：当符号左边是false时，&继续执行符号右边的运算。&&不再执行符号右边的运算。
+        boolean b1 = true;
+        int num1 = 10;
+        if (b1 & (num1++ > 0)) {
+            System.out.println("我现在在北京");
+        } else {
+            System.out.println("我现在在南京");
+        }
+
+        System.out.println("num1 ="+ num1);
+
+
+        boolean b2 = true;
+        b2 = false;
+        int num2 = 10;
+        if (b2 && (num2++ > 0)) {
+            System.out.println("我现在在北京");
+        } else {
+            System.out.println("我现在在南京");
+        }
+        System.out.println("num2 ="+ num2);
+
+        //区分： | 与||
+        //相同点1：|与||的运算结果相同
+        //相同点2：当符号左边是false时，二者都会执行符号右边的运算
+        //不同点3：当符号左边是ture时，|继续执行符号右边的运算，而||不再执行符号右边的运算
+        //开发中，推荐使用||
+        boolean b3 =false;
+        b3 = true;
+        int num3 = 10;
+        if(b3 | (num3++> 0 )){
+            System.out.println("我现在在北京");
+        }else {
+            System.out.println("我现在在南京");
+        }
+        System.out.println("num3 ="+ num3);
+
+        boolean b4 =false;
+        b4 = true;
+        int num4 = 10;
+        if(b3 || (num4++> 0 )){
+            System.out.println("我现在在北京");
+        }else {
+            System.out.println("我现在在南京");
+        }
+        System.out.println("num4 ="+ num4);
+    }
+}
+/*
+*运算符之五：运算符（了解）
+*结论：
+* 1.位运算符操作的都是整型的数据
+* 2.<<:在一定范围内，每向左移1位，相当于*2
+*   >>:在一定范围内，每向右移1位，相当于/2
+*/
+class   BitTest{
+    public static void main(String[]args){
+        int i =21;
+        i = -21;
+        System.out.println("i << 2 :"+ (i << 2));
+        System.out.println("i << 3 :"+ (i << 2));
+        System.out.println("i << 27 :"+ (i << 27));
+    }
+}
 
 
 
