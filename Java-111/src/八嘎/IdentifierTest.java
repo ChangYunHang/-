@@ -538,10 +538,97 @@ class   BitTest{
         System.out.println("i << 2 :"+ (i << 2));
         System.out.println("i << 3 :"+ (i << 2));
         System.out.println("i << 27 :"+ (i << 27));
+
+        int m =12;
+        int n = 5;
+        System.out.println("m & n:" + (m & n));
+        System.out.println("m | n:" + (m | n));
+        System.out.println("m ^ n:" + (m ^ n));
+
+        //练习：交换两个变量的值
+        int num1 = 10;
+        int num2 = 20;
+        System.out.println("num1 = " + num1 + ", num2 =" +num2 );
+
+
+        //方式一：定义临时方式的变量
+        //推荐的方式
+        //int temp num1;
+        //num1= num2;
+        //num2 = temp;
+
+        //方式二：好处：不用定义的临时变量
+        //弊端：①相加操作可能超过存储范围 ②有局限性：只能适用于数据类型
+        //num1 =num1 + num2;
+        //num2= num1 - num2;
+        //num1= num1 - num2;
+
+
+        //方式三：使用位运算符
+        //有局限性：只能适用于数值类型
+        //num1=num1^num2;
+        //num2=num1^num2;
+        //num1 = num1^num2;
+        System.out.println("num1=" + num1 +", num2=" +num2);
     }
 }
+/*
+*运算符之六：三元运算符
+*1.结构：（条件表达式）？表达式1：表达式2
+*2说明
+*①条件表达式的结果为boolean类型
+*②根据条件表达式真或假，决定执行表达式1，还是表达式2。
+* 如果表达式为true，则执行表达式1
+* 如果表达式为false，则执行表达式2.
+* ③表达式1 和表达式②要求是一致的。
+* ④三元运算符可以嵌套使用
+*
+* 3.凡是可以使用三元运算符的地方，都可以改写为if-else
+* 反之，不成立。
+*
+* 4.如果程序既可以使用三元运算符，又可以使用if-else结构，那么优先选择三元运算符。原因：简洁，执行效率高。
+*/
+class SanYuanTest{
+    public static void main(String[]args){
+
+        //获取两个整数的最大值
+        int m= 12;
+        int n = 5;
+
+        int max =(m > n)? m: n ;
+        System.out.println(max);
+
+        double num = (m>n)? 2: 10;
+        //（m >n）? 2 : "n大";//编译错误
+
+        //******************
+        n = 12;
+        String maxStr = (m > n)?"m大" :((m==n)?"m和n相等":"n大");
+        System.out.println(maxStr);
+        //********************
+        //获取三个数的最大值
+        int n1 =12;
+        int n2 = 30;
+        int n3= -43;
+
+        int max1= (n1>n2)? n1: n2;
+        int max2=(max1 >n3)? max1: n3;
+        System.out.println("三个数中的最大值为：" +max2);
 
 
+        //不建议
+        //int max3= (((n1> n2)? n1: n2) > n3) ? ((n1 > n2)? n1 : n2): n3;
+        //System.out.println("三个数中的最大值为："+max3);
+
+        //改写成if-else；
+        if(m > n){
+            System.out.println(m);
+
+        }else {
+            System.out.println(n);
+        }
+    }
+}
 
 
 
