@@ -1,6 +1,8 @@
 package 八嘎;
 
 
+import java.util.Scanner;
+
 /*
 * 标识符的使用
 * 1.标识符：凡是自己命名的都叫标识符。比如：类名,方法名，接口名，包名...
@@ -629,12 +631,124 @@ class SanYuanTest{
         }
     }
 }
+/*
+*分支结构中的if-else(条件判断结构)
+*
+* 一、三种结构
+*
+* 第一种:
+* if(条件表达式){
+*
+* }
+*
+* 第二种:二选一
+* if(条件表达式){
+*    执行表达式1
+* }else{
+*     执行表达式2
+* }
+*
+* 第三种：多选一
+* if(条件表达式){
+*   执行表达式1
+* }else if(条件表达式){
+*   执行表达式2
+* }else if(条件表达式){
+*   执行表达式3
+* }
+* 。。。。。。
+* else{
+*   执行表达式n
+* }
+*
+*/
+class  IfTest{
+    public static void main(String[]args){
+
+        //举例1
+        int hearBests = 79;
+        if(hearBests < 60 || hearBests >100) {
 
 
+            System.out.println("需要做进一步检查");
+
+        }
+        System.out.println("检查结束");
 
 
+        //举例2
+        int age = 23;
+        if (age <18){
+            System.out.println("你还可以看动画片");
+        }else {
+            System.out.println("你可以看海贼王了");
+        }
 
 
+        //举例3
+        if(age < 0){
+            System.out.println("您输入的数据非法");
+        }else  if (age < 18){
+            System.out.println("青少年时期");
+        }else  if (age < 35){
+            System.out.println("青壮年时期");
+        }else  if (age < 60){
+            System.out.println("中年时期");
+        }else  if (age < 120){
+            System.out.println("老年时期");
+        }else {
+            System.out.println("你要成仙啊~~");
+        }
+
+
+    }
+}
+
+
+/*
+*如何从键盘获取不同类型的变量：需要使用Scanner类
+*
+*具体实现步骤：
+* 1.导包：import  java.util.Scanner;
+* 2.Scanner的实例化：Scanner scan = new Scanner(System.in);
+* 3.调用Scanner类的相关方法，来获取指定类型的变量
+*
+*
+* 注意：
+* 需要根据相应的方法，来输入指定类型的值。如果输入的数据类型与要求的类型不匹配时，会报异常：InputMisMatchException导致程序终止
+*/
+
+
+class ScannerTest{
+    public static void main(String[]args){
+        //2.Scanner的实例化：Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
+        //3.调用Scanner类的相关方法，来获取指定类型的变量
+        System.out.println("请输入你的姓名");
+        String name = scan.next();
+        System.out.println(name);
+
+        System.out.println("请输入你的芳龄");
+        int age = scan.nextInt();
+        System.out.println(age);
+
+        System.out.println("请输入你的体重：");
+        double  weight = scan.nextDouble();
+        System.out.println(weight);
+
+        System.out.println("你是否相中我了呢？(true/false)");
+        boolean isLove = scan.nextBoolean();
+        System.out.println(isLove);
+
+        //对于char型的获取，Scanner没有提供相关的方法。只能获取一个字符串
+        System.out.println("请输入你的性别：(男/女)");
+        String gender = scan.next();//"男"
+        char genderChar = gender.charAt(0);//获取索引为0位置上的字符
+        System.out.println(genderChar);
+
+    }
+
+}
 
 
 
