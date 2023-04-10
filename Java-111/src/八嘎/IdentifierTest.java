@@ -749,7 +749,127 @@ class ScannerTest{
     }
 
 }
+/*
+*越小彭参加Java考试，他和越不群达成承诺
+* 如果：
+* 成绩为100分时，奖励一台BMW；
+*成绩为(80，99]时，奖励一台iPhone xs max;
+*当成绩为[60,80]时，奖励一台ipad；
+* 其他时，什么奖励也没有
+*请从键盘输出越小彭期末成绩，并加以判断
+*
+*说明：
+* 1.else结构是可选的
+* 2.针对条件表达式：
+* >如果多个条件表达式之间是“互斥”关系（或者没有交集的关系），哪个判断和执行语句声明在上面还是下面。无所谓。
+* >如果多个条件表达式之间有交集的关系，需要根据实际的情况，考虑清楚应该将哪个结构声明在上面
+* >如果多个条件表达式之间有包含的关系，通常情况下，需要将范围小的声明在范围大的声明上面。否则，范围小的，就没机会执行了
+*/
+class IfTest2{
+    public static void  main(String[]args){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("请输入越小彭的期末成绩：(0-100)");
+        int score = scan.nextInt();
+
+        if (score==100){
+            System.out.println("奖励一台BMW");//be my wife! BMW <--> MSN
+        }else if( score  >80 &&   score<= 99) {
+           System.out.println("奖励一台iPhone xs max");
+        }else if( score  >60 &&   score<= 80) {
+            System.out.println("奖励一台ipad");
+        }else {
+            System.out.println("什么奖励也没有");
 
 
+        }
+    }
+}
+/*
+*编写程序：由键盘输入三个整数分别存入变量num1,num2,num3,
+* 对他们进行排序（使用if - else if-else）,并且从小到大输出
+*
+*说明：
+* 1.if-else结构是可以相互嵌套的
+* 2.如果if-else结构中执行语句只有一行时，对应的一对{}是可以省略的。但是，不建议大家省略。
+*/
+ class IfTest3{
+     public static  void main(String[]args){
+         Scanner scanner = new Scanner(System.in);
+
+         System.out.println("请输入第一个整数：");
+         int num1 = scanner.nextInt();
+         System.out.println("请输入第二个整数：");
+         int num2 = scanner.nextInt();
+         System.out.println("请输入第三个整数：");
+         int num3 = scanner.nextInt();
+
+         if(num1 >= num2) {
+             if (num3 >= num1) {
+                 System.out.println(num2 + "," + num1 + "," + num3);
+             } else if (num3 <= num2) {
+                 System.out.println(num3 + "," + num2 + "," + num1);
+             } else {
+                 System.out.println(num2 + "," + num3 + "," + num1);
+             }
+         }else {
+             if (num3 >= num2){
+                 System.out.println(num1 + "," + num2 + "," + num3);
+             }else if(num3 <= num1){
+                 System.out.println(num3 + "," + num1 + "," + num2);
+             }else if(num3 <= num1){
+                 System.out.println(num1 + "," + num3 + "," + num2);
+
+             }
+
+         }
+     }
+}
+class  IfExer{
+     public static  void  main(String[]args){
+         int x = 4;
+         int y = 1;
+         if ( x > 2)
+         if ( y > 2)
+             System.out.println( x + y);
+          //System.out.println("atguigu");
+         else//就近原则
+         System.out.println("x is " +x);
+
+         //课后练习3：测量狗的年龄
+         int dogAge = 6;
+         if(dogAge >=0 && dogAge <=2) {
+             System.out.println("相当于人的年龄：" + dogAge * 10.5);
+         }else if(dogAge >2){
+             System.out.println("相当于人的年龄：" + (2* 10.5 + (dogAge - 2) * 4));
+         }else{
+             System.out.println("狗狗还没出生呢！");
+
+         }
+
+
+     }
+}
+
+class  IfExer1 {
+     public static void  main(String[]args){
+         Scanner scan = new Scanner(System.in);
+
+         System.out.println("请输入你的身高：（cm）");
+         int height = scan.nextInt();
+         System.out.println("请输入你的财富：（千万）");
+         double wealth = scan.nextDouble();
+         System.out.println("请输入你是否帅：（ture/false）");
+         boolean isHandsome = scan.nextBoolean();
+
+         if(height >= 180 && wealth >= 1 && isHandsome){
+             System.out.println("我一定要嫁给他！！！");
+         }else if(height >=180 || wealth >=1 ||isHandsome) {
+             System.out.println("嫁吧，比上不足，比下有余。");
+         }else{
+             System.out.println("不嫁！");
+         }
+     }
+}
 
 
