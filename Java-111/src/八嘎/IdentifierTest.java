@@ -1003,6 +1003,8 @@ class SwitchCaseTest2 {
         int day = scan.nextInt();
 
         //定义一个变量来保存天数
+        //方式一：
+        /*
         int sumDays = 0;
         if(month == 1){
             sumDays = day;
@@ -1013,7 +1015,110 @@ class SwitchCaseTest2 {
         }else if(month == 4){
             sumDays = 31 +28 +31 +day ;
         }
+        //。。。
+        else {//month=12
+              //sunDays=...+day
+              }
+         */
+
+        //方式二：
+        /*
+        switch (month){
+            case 1:
+                sumDays = day;
+                break;
+            case 2:
+                sumDays = 31 + day;
+            case 3:
+                sumDays = 31 + day;
+                break;
+            ...
+
+         */
+
+        }
 
     }
 
+
+/*
+For循环结构的使用
+一、循环结构的4个要素
+①初始化条件
+②循环条件
+③循环体
+④迭代条件
+
+二、For循环的结构
+
+for(①；②；④){
+     ③
+}
+
+执行过程: ① - ② - ③ - ④ - ② - ③ - ④ - ... - ②
+
+*/
+class ForTest{
+    public static void main(String[]args){
+        /*
+        *System.out.println("ok");
+        *System.out.println("ok");
+        *System.out.println("ok");
+        */
+        for(int i = 1;i <= 5000; i++){//i:1,2,3,4,5
+            System.out.println("ok");
+        }
+        //i:在for循环内有效。出了for循环就失效了。
+        //System.out.println(i);
+
+
+
+
+        //练习
+        int num = 1;
+        for(System.out.println('a');num <= 3;System.out.println('c'),num++){
+            System.out.println('b');
+        }
+        //输出结果：abcbcbc
+        System.out.println();
+
+        //例题：遍历100以内偶数，输出所有偶数的和，输出偶数的个数
+        int sum = 0;//记录所有偶数的和
+        int count = 0;//记录偶数的个数
+        for(int i = 1 ;  i <= 100;i++){
+
+            if(i % 2 == 0){
+                System.out.println(i);
+                sum += i;
+                count++;
+            }
+            //System.out.println("总和为：" + sum);
+        }
+        System.out.println("总和为：" + sum);
+        System.out.println("个数为：" + count);
+
+
+    }
+}
+
+class ForTest1 {
+    public static void main(String[] args) {
+        for(int i = 1;i <= 150; i++){
+
+            System.out.println(i +"");
+            if(i % 3 == 0){
+                System.out.println("foo ");
+            if(i % 5 == 0){
+                System.out.println("biz");
+            if(i % 7 == 0){
+                System.out.println("baz");
+
+            }
+            //换行
+                System.out.println();
+                }
+            }
+        }
+
+    }
 }
