@@ -1122,3 +1122,139 @@ class ForTest1 {
 
     }
 }
+/*
+* 题目：输入两个整数m和n，求其最大公约数和最小公倍数
+* 比如：12和20的最大公约数是4，最小公倍数是60
+*
+* 说明break关键字的使用
+* */
+
+class Fortest {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("请输入一个正数：");
+        int m = scan.nextInt();
+
+        System.out.println("请输入第二个整数：");
+        int n = scan.nextInt();
+
+
+        //获取最大公约数
+        //获取两个数中的较小值
+
+        int min = (m <= n) ? m : n;
+        //遍历
+        for (int i = min; i >= 1; i--) {
+            if (m % i == 0 && n % i == 0) {
+                System.out.println("最大公约数为：" + i);
+                break;//一旦在循环中执行到break,就跳出循环
+            }
+        }
+        //获取最小公倍数
+        //1.获取两个数中的较大值
+        int max = (m >= n) ? m : n;
+        //2.遍历
+        for(int i = max;i <= m * n; i++){
+
+            System.out.println("最小公倍数:" + i);
+            break;
+        }
+    }
+}
+
+
+/*
+while循环的使用
+①初始化条件
+②循环条件
+③循环体
+④迭代条件
+
+二、while循环的结构
+
+①
+while(②){
+  ③；
+  ④；
+}
+
+执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ... - ②
+
+说明：
+1.写while循环千万小心不要丢了迭代条件。一旦丢了，就可能导致死循环
+2.我们写程序，要避免出现死循环
+3.for循环和while循环是可以相互转换的！
+区别：for循环和while循环的初始化条件部分的作用范围不同
+
+
+算法：有限性
+*/
+class WhileTest{
+    public  static void main(String[]args){
+
+        //遍历100以内的所有偶数
+        int i = 1;
+        while (i <= 100){
+
+            if(i % 2 ==0){
+                System.out.println(i);
+            }
+            i++;
+        }
+        System.out.println(i);//101
+    }
+}
+/*
+do-while循环的使用
+一、循环结构的4个要素
+①初始化条件
+②循环条件 --->是Boolean类型
+③循环体
+④迭代条件
+
+二、do-while循环结构：
+①
+do{
+   ③；
+   ④；
+ }while(②)；
+ 执行过程：① - ③ - ④ - ② - ③ - ④ - ② - ③ -...- ②
+说明
+1.do-while循环至少会执行一次循环体！
+2.开发中，使用for和while更多一些，较少使用do-while
+
+
+
+*/
+class DowhileTest {
+    public static void main(String[] args) {
+
+        //遍历100以内的偶数
+        int num = 1;
+        int sum = 0;//记录总和
+        int count =0;//记录个数
+        do {
+            if (num % 2 == 0) {
+                System.out.println(num);
+                sum += num;
+                count++;
+            }
+
+            num++;
+        } while (num <= 100);
+        System.out.println("总数为：" + sum);
+        System.out.println("个数为" + count);
+
+        //***********************
+        int number1 = 15;
+        while(number1 > 15){
+            System.out.println("hello:while");
+            number1--;
+        }
+        int number2 = 10;
+        do{
+            System.out.println("hello:while");
+            number2--;
+        }while(number2 > 10);
+    }
+}
