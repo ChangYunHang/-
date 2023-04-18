@@ -1258,3 +1258,139 @@ class DowhileTest {
         }while(number2 > 10);
     }
 }
+/*
+题目：
+从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序。
+说明：
+1.不在循环条件部分限制次数的结构：for(;;)或whilr(true)
+2.结束循环有几种方式？
+方式一：循环条件部分返回false
+方式二：在循环体中，执行break
+ */
+
+
+class ForWhileTest{
+    public static void main(String[]args){
+
+        Scanner scan = new Scanner(System.in);
+
+        int positiveNumber = 0;//记录正数的个数
+        int negativeNumber = 0;//记录负数的个数
+
+
+        while(true){
+            int number = scan.nextInt();
+
+            //判断number的正负情况
+            if (number>0){
+                positiveNumber++;
+            }else  if (number<0){
+                negativeNumber++;
+            }else {
+                //一旦执行break,跳出循环
+                break;
+
+                }
+            }
+
+        }
+
+        }
+/*
+嵌套循环的使用
+1.嵌套循环：将一个循环结构A声明在另一个循环结构B的循环体中，就构成了嵌套结构
+
+2.
+外层循环：循环结构B
+内层循环：循环结构A
+
+3.说明
+①内层循环结构遍历一遍，只相当于外层循环循环体执行了一次
+②假设外层循环需要执行m次，内层循环需要执行n次。此时内层循环的循环体一共执行了m*n次
+
+4.技巧
+外层循环控制行数，内层循环控制列数
+*/
+class ForForTest {
+    public static void main(String[] args) {
+
+        //**********
+        //System.out.println("****************");
+        for (int i = 1; i <= 6; i++) {
+            System.out.println('*');
+        }
+        /*
+         *********
+         *********
+         *********
+         *********
+         */
+        for (int j = 1; j <= 4; j++) {
+            for (int i = 1; i <= 6; i++) {
+                System.out.println('*');
+            }
+            System.out.println();
+
+        }
+        /*
+         *
+         **
+         ***
+         ****
+         ******
+         */
+        for (int i = 1; i <= 5; i++) {//控制行数
+            for (int j = 1; j < i; ) {//控制列数
+                System.out.println("*");
+
+            }
+            System.out.println();
+
+        }
+
+    }
+}
+/*
+嵌套循环的应用1：
+
+九九乘法表
+1*1=1
+2*1=2  2*2=4
+...
+9*1=9.....9*9=81
+ */
+class NineNineTable{
+    public static void main(String[]args){
+        for(int i =1;i<=9;i++){
+            for(int j=1;j<=i;j++){
+                System.out.println(i+"*"+j+"="+(i*j)+"");
+            }
+            System.out.println();
+        }
+    }
+}
+/*
+100以内的所有质数的输出
+质数：素数，只有被1和它本身整除的自然数.-->从2开始，到这个数-1结束为止，都不能碑额这个数本身整除
+最小的质数是：2
+ */
+class PrimeNumberTest{
+    public static void main(String[]args){
+        boolean isFlag=true;//标识i是否被j除尽，一旦除尽，修改其值
+        for(int i= 2;i<=100;i++){//遍历100以内的自然数
+            for(int j=2;j<i;j++){//j:被i去除
+                if(i%j==0){
+                    isFlag=false;
+                }
+
+            }
+            //
+            if(isFlag==true){
+                System.out.println(i);
+            }
+            //重置isFlag
+            isFlag=true;
+
+        }
+    }
+}
