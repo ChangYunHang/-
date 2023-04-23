@@ -1,6 +1,7 @@
 package 八嘎;
 
 
+import javax.swing.text.Utilities;
 import java.util.Scanner;
 
 /*
@@ -1391,6 +1392,89 @@ class PrimeNumberTest{
             //重置isFlag
             isFlag=true;
 
+        }
+    }
+}
+/*
+break和contnue关键字的使用
+                使用范围        循环中使用的作用(不同点)            相同点
+break:          switch-case
+                 循环结构中     结束当前循环                       关键字后面不能声明执行语句
+
+continue:       循环结构中       结束当前循环                      关键字后面不能声明执行语句
+
+
+
+*/
+class BreakContinueTest{
+    public static void main(String[]args){
+        for(int i= 1;i<=10;i++){
+
+            if(i%4==0){
+                //break;//123
+                //continue;//123567910
+
+            }
+            System.out.println(i);
+
+        }
+        System.out.println();
+        //***********************
+
+        label:for (int i =1;i<=10;i++){
+            for(int j = 1;j<=10;j++){
+                if(j%4==0){
+                    //break;//默认跳出包裹此关键字最近的一层循环
+                    //continue;
+
+                    break label;//结束指定标识的一层循环结构
+                    //continue label;////结束指定标识的一层循环结构当次循环
+                }
+               System.out.println(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+class FamilyAccont{
+    public static void main(String[]args){
+        boolean isFlag = true;
+
+        while (isFlag){
+            System.out.println("------------------家庭收支记账软件---------------------- ");
+            System.out.println("                    1 收支明细");
+            System.out.println("                    2 登记收入");
+            System.out.println("                    3 登记支出");
+            System.out.println("                    4 退    出\n");
+            System.out.println("                    请选择（1-4）");
+            //获取用户的选择 1-4
+            char selection =Utility.readMenuSelection();
+            switch (selection){
+
+                case '1':
+                    System.out.println("1.收支明细");
+                    break;
+
+                case '2':
+                    System.out.println("2.登记收入");
+                    break;
+
+                case '3':
+                    System.out.println("3.登记支出");
+                    break;
+
+                case '4':
+                    //System.out.println("4.退 出 ");
+                    System.out.println("确认是否退出(Y/N)");
+                    char isExit = Utility.readConfirmSelection();
+                    if (isExit == 'Y'){
+                        isFlag=false;
+                    }else
+
+                    break;
+            }
+            //isFlag = false;
         }
     }
 }
