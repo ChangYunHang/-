@@ -1436,10 +1436,12 @@ class BreakContinueTest{
         }
     }
 }
-
+/*
 class FamilyAccont{
     public static void main(String[]args){
         boolean isFlag = true;
+        //用于记录用户收入和支出的详情
+        String details = "收支\t账户金额\t收支金额\t说    明\n";
 
         while (isFlag){
             System.out.println("------------------家庭收支记账软件---------------------- ");
@@ -1449,19 +1451,48 @@ class FamilyAccont{
             System.out.println("                    4 退    出\n");
             System.out.println("                    请选择（1-4）");
             //获取用户的选择 1-4
-            char selection =Utility.readMenuSelection();
+            char selection = Utility.readMenuSelection();
             switch (selection){
 
                 case '1':
-                    System.out.println("1.收支明细");
+                    //System.out.println("1.收支明细");
+                    System.out.println("-------------------------当前收支明细记录-------------------");
+                    System.out.println(details);
+                    System.out.println("-------------------------------");
                     break;
 
                 case '2':
-                    System.out.println("2.登记收入");
+                    //System.out.println("2.登记收入");
+                    System.out.println("本次收入金额");
+                    int money1 = Utility.readNumber();
+                    System.out.println("本次收入说明");
+                    String info1 = Utility.readString();
+
+                    //处理balance
+                    balance += money1;
+
+                    //处理details
+                    details +=("收入\t" + balance +"\t\t" +money1 +"\t\t" +info1 + "\n");
+
+                    System.out.println("------------------登记完成--------------------");
                     break;
 
                 case '3':
-                    System.out.println("3.登记支出");
+                    //System.out.println("3.登记支出");
+                    int money2 = Utility.readNumber();
+                    System.out.println("本次支出说明：");
+                    String info2 = Utility.readString();
+
+                    //处理balance
+                     if (balance>=money2){
+                     balance -= money2;
+
+                     //处理details
+                     details +=("支出\t" +balance+"\t\t"+money2+"\t\t"+info2+"\n");
+                     }else {
+                         System.out.println("支出超出账户额度，支付失败");
+                     }
+                     System.out.println("-------------登记完成---------------------------\n");
                     break;
 
                 case '4':
@@ -1477,4 +1508,60 @@ class FamilyAccont{
             //isFlag = false;
         }
     }
+
+
+*/
+
+/*
+一、数组的概述
+1.数组的理解：数组是多个相同类型数据按一定顺序排列的集合，并使用一个名字命名，并通过标号的方式对这些数据进行统一管理
+
+2.数组的相关概念
+>数组名
+>元素
+>角标、下标、索引
+>数组的长度：元素的个数
+
+3.数组的特点
+1）.数组是有序排列的
+2）.数组属于引用数据类型的变量。数组的元素，既可以是基本数据类型，也可以是引用数据类型
+3）.创建数组对象会在内存中开辟一整块连续的空间
+4）.数组的长度一旦确定，就不能修改
+
+4.数组的分类
+①按照维数：一维数组、二维数组、。。。
+②按照数组元素的类型，基本数据类型元素的数组、引用数据类型元素的数组
+
+
+5.一维数组的使用
+①一维数组的声明和初始化
+②如何调用数组的指定位置的元素
+③如何获取数组的长度
+④如何遍历数组
+⑤数组元素的默认初始化值
+⑥数组的内存解析
+
+*/
+ class ArrayTest{
+     public static void main(String[]args){
+         //①一维数组的声明和初始化
+         int num;//声明
+         num = 10;//初始化
+         int id = 1001;//声明 + 初始化
+
+         int[]ids;//声明
+         //1.1静态初始化：数组的初始化和数组元素的赋值操作同时进行
+         ids = new int[]{1001,1002,1003,1004};
+         //1.2动态初始化：数组的初始化和元素的赋值操作分开进行
+         String[] names = new String[5];
+
+         //错误的写法
+         //int [] arr1 = new int[];
+         //int [5] arr2 = new int[5];
+         //int [] arr3 = new int[1,2,3];
+
+         //总结：数组一旦初始化完成，其长度就确定了
+
+     }
+
 }
