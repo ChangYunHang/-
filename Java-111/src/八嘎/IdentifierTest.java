@@ -1562,6 +1562,86 @@ class FamilyAccont{
 
          //总结：数组一旦初始化完成，其长度就确定了
 
-     }
+          //2.如何调用数组的指定位置的元素：通过角标的方式调用
+         //数组的角标（或索引）从0开始的，到数组的长度-1结束
 
+                 names[0]="王铭";
+                 names[1]="王赫";
+                 names[2]="张学良";
+                 names[3]="孙巨龙";
+                 names[4]="王宏志";//chat(0)
+                 names[5]="周扬";
+
+
+                  //3.如何获取数组长度
+                  //属性:length
+                  System.out.println(names.length);//5
+                  System.out.println(ids.length);
+
+
+                  //4.如何遍历数组
+                  /*System.out.println(names[0]);
+                  System.out.println(names[1]);
+                  System.out.println(names[2]);
+                  System.out.println(names[3]);
+                  System.out.println(names[4]);*/
+
+
+                  for(int i = 0;i<names.length;i++){
+                      System.out.println(names[1]);
+        }
+
+        }
+
+        }
+
+   /*⑤数组元素的默认初始值
+   >数组元素是整型：0
+   >数组元素是浮点型：0.0
+   >数组元素是char型：0或'\u0000',而非'0'
+   >数组元素是boolea型,false
+
+
+   >数组元素是引用数据类型：null(空值的意思)
+    */
+
+
+class  ArrayTest1{
+     public static void main(String[]args){
+         //5.数组元素的默认初始化值
+         int[] arr= new int[4];
+         for (int i= 0;i <arr.length;i++){
+             System.out.println(arr[i]);
+         }
+         System.out.println("***********");
+
+         short[] arr1= new short[4];
+         for (int i=0;i<arr1.length;i++){
+             System.out.println(arr1[i]);
+         }
+         System.out.println("******************");
+         float[] arr2= new float[5];
+         for(int i = 0;i< arr2.length;i++){
+             System.out.println(arr2[i]);
+         }
+         System.out.println("***************");
+         char[] arr3=new char[4];
+         for (int i=0;i<arr3.length;i++){
+             System.out.println("----"+arr3[i]+"*****");
+         }
+
+         if(arr3[0]==0){
+             System.out.println("你好!");
+         }
+         System.out.println("**************");
+         boolean[] arr4 =new boolean[5];
+         System.out.println(arr4[0]);
+
+         System.out.println("********");
+         String[] arr5= new String[5];
+         System.out.println(arr5[0]);
+         if(arr5[0] == null){
+             System.out.println("北京天气不错！");
+         }
+     }
 }
