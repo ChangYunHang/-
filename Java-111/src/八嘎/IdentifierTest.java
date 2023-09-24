@@ -39,9 +39,6 @@ public class IdentifierTest {
 //class  1Hollo{
 //        }
 
-class staticpublic{
-
-}
 
 class Static{
 
@@ -1190,7 +1187,7 @@ while(②){
 
 算法：有限性
 */
-class WhileTest{
+class  WhileTest{
     public  static void main(String[]args){
 
         //遍历100以内的所有偶数
@@ -1645,3 +1642,264 @@ class  ArrayTest1{
          }
      }
 }
+/*
+二维数组的使用
+规定：二维数组分为外层数组的元素，内层数组的元素
+       int[][]arr=new int[4][3];
+       外层元素：arr[0],arr[1]等
+       内层元素：arr[0][0],arr[1][2]等
+
+        数组元素的默认初始化值
+        针对于初始化方式一：比如：int[][] arr= new int[4][3];
+        外层元素的初始化值为：地址值
+        内层元素的初始化值为：与一维数组初始化情况相同
+
+        针对初始化方式二：比如int[][] arr=new int[4][];
+        外层元素的初始值为:null
+        内层元素的初始值为:不能调用，否则报错。
+
+
+ */
+
+
+
+
+
+
+class  ArrayTest3{
+    public static void main(String[]args){
+        int[] arr=new int[10];
+
+        for(int i=0 ;i<arr.length;i++){
+            arr[i]=(int)(Math.random()*(99-10+1)+10);
+
+        }
+        //遍历
+        for(int i = 0;i<arr.length;i++){
+            System.out.println(arr[i]+"\t");
+        }
+        System.out.println();
+        //求数组最大值
+        int maxValue = arr[0];
+        for(int i=1;i<arr.length;i++){
+            if(maxValue<arr[i]){
+                maxValue = arr[i];
+            }
+        }
+        System.out.println("最大值为："+maxValue);
+
+        //求数组元素最小值
+        int minValue = arr[0];
+        for(int i=1;i<arr.length;i++){
+            if(minValue<arr[i]){
+                minValue = arr[i];
+            }
+        }
+        System.out.println("最小值为："+minValue);
+
+        //求数元素的总和
+        int sum=0;
+        for(int i=0;i<arr.length;i++){
+            sum +=arr[i];
+        }
+        System.out.println("总和为："+sum);
+        //求数组元素的平均数
+        int avgValue = sum/arr.length;
+        System.out.println("平均数为："+avgValue);
+
+
+
+    }
+}
+class  ArrayExer2{
+    public  static  void  main(String[]args){ //alt+/
+        int[] array1,array2;
+
+        array1 =new int[]{2,3,5,11,13,17,19};
+
+        //显示array1的内容
+        for(int i=0;i<array1.length;i++){
+            System.out.println(array1[i]+"\t");
+
+            //赋值array1变量等于array1
+            array2 = array1;
+
+            //修改array2中的偶索引元素，使其等于索引值
+            for(int i1=0;i<array2.length;i++);
+            if (i%2==0){
+                array2[i]=i;
+            }
+        }
+        System.out.println();
+        //打印array1
+        for(int i=0;i< array1.length;i++){
+            System.out.println(array1[i]+"\t");
+        }
+
+    }
+
+}
+
+class ArrayTest4 {
+    public static void main(String[] args) {
+        String[] arr = new String[]{"JJ", "DD", "MM", "BB", "GG"};
+
+        //数组的复制
+        String[] arr1 = new String[arr.length];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = arr[i];
+        }
+        //数组的反转
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            String temp = arr[i];
+            arr[i] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = temp;
+        }
+        //遍历
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i] + "\t");
+        }
+        System.out.println();
+        //查找（搜索）
+        //线性查找
+        String dest = "BB";
+
+        boolean isFlag = true;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (dest.equals(arr[i])) {
+                System.out.println("找到了指定的元素，位置为：" + i);
+                isFlag = false;
+                break;
+
+            }
+
+        }
+        if (isFlag) {
+            System.out.println("很遗憾，没有找到");
+        }
+
+        //二分法查找：
+        //前台，所要查找的数组必须有序
+        int[] arr2 = new int[]{-98, -34, 2, 34, 54, 66, 79, 105, 210, 333};
+
+        int dest1 = -34;
+        int head = 0;//初始的首索引
+        int end = arr2.length - 1;//初始的末索引
+
+        while (head <= end) {
+            int middle = (head + end) / 2;
+            if (dest1 == arr2[middle]) {
+                System.out.println("找到了指定的元素，位置为：" + middle);
+                break;
+            } else if (arr2[middle] > dest1) {
+                end = middle - 1;
+            } else {//arr2[middle]<dest1
+                head = middle + 1;
+            }
+
+        }
+
+    }
+
+
+}
+
+
+class BubblesSortTest{
+    public static void main(String[]args){
+        int[] arr=new int[]{43,32,76,-98,0,64,33,-21,32,99};
+
+        //冒泡排序
+        for(int i=0;i<arr.length-1;i++){
+
+            for(int j=0;j<arr.length-1-i;j++){
+
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+/*
+一、Java面向对象学习的三条主线
+1、Java类及类的成员：属性、方法、构造器；代码块、内部类
+2、面向对象的三大特征：封装性、继承性、多态性、（抽象性）
+3、其他关键字：this,super,static,final,abstract,interface,package,import等
+"大处着眼，小处着手"
+
+
+二、“人把大象装冰箱”
+1.面向过程，强调的是功能的对象，以函数为最小单位，考虑怎么做
+2.面向对象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做
+
+三、面向对象的两个要素
+类：对一类事物的描述，是抽象的，概念上的定义
+对象：是实际存在的该类十五的每个个体，因而也称为实例（instance）
+>面向对象程序设计的重点是类的设计
+>设计类，就是设计类的成员
+属性=成员变量=field=域、字段
+方法=成员方法=函数=method
+
+创造类的对象=类的实例化=实例化类
+
+四、类和对象的使用（面向对象思想落地的实现）；
+1.创建类，设计类的成员
+2.创建类的对象
+3.通过“对象，属性”或“对象，方法”调用对象的结构
+
+
+五、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性，（费static的）
+意味着：如果我们修改一个对象的属性a，则不影响另外一个对象属性a的zhi
+ */
+
+class person{
+
+    //属性
+    String name;
+    int age=1;
+    boolean isMale;
+
+    //方法
+    public  void eat(){
+        System.out.println("人可以吃饭");
+    }
+    public void sleep(){
+        System.out.println("人可以睡觉");
+    }
+}
+
+
+
+class User{
+    //属性（或者成员变量）
+    private String name;
+    public  int age;
+    boolean isMale;
+
+    public void talk(String language){//language:形参，也是局部变量
+        System.out.println("我们使用"+language+"进行交流");
+
+    }
+
+    public void eat(){
+        String food="烙饼";//局部变量
+        System.out.println("北方人喜欢吃"+food);
+    }
+}
+
+
+class CustomerTest{
+
+}
+
+
